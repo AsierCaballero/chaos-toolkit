@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+node_modules/
+dist/
+.env
+*.egg-info/
+.tox/
+.coverage
+htmlcov/
+.vscode/
+.idea/
+*.log
