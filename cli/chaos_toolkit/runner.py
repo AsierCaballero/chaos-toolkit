@@ -200,3 +200,16 @@ def describe_experiment(name: str, namespace: str) -> str | None:
     except ApiException:
         return None
     return yaml.dump(engine, default_flow_style=False)
+
+def poll_experiment(name, namespace, timeout=300, interval=5):
+    """Poll experiment status until completion or timeout."""
+    import time
+    client = K8sClient(namespace)
+    elapsed = 0
+    while elapsed < timeout:
+        status = client.get_experiment(name)
+        if status and status["status"] == "Completed":
+            return status
+        time.sleep(interval)
+        elapsed += interval
+    return {"status": "Timeout"}
