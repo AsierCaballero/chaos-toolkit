@@ -99,3 +99,4 @@ def templates_cmd():
     from tabulate import tabulate
     rows = [{"name": k, "description": v["description"]} for k, v in TEMPLATES.items()]
     click.echo(tabulate(rows, headers="keys", tablefmt="simple"))
+
