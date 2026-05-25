@@ -38,3 +38,4 @@ class TestMergeDicts:
         result = merge_dicts(base, override)
         assert result["a"] == [3, 4]
         assert base["a"] == [1, 2]
+# Fixed path resolution
