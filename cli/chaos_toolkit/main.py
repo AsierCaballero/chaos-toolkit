@@ -101,3 +101,4 @@ def templates_cmd():
     click.echo(tabulate(rows, headers="keys", tablefmt="simple"))
 
 
+
