@@ -35,3 +35,8 @@ chaos run k8s/experiments/pod-delete.yaml --namespace default
               │   (experiments run)   │
               └───────────────────────┘
 ```
+
+## Badges
+
+[![CI](https://github.com/AsierCaballero/chaos-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/AsierCaballero/chaos-toolkit/actions/workflows/ci.yml)
+
