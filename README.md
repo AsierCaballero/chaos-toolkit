@@ -40,3 +40,12 @@ chaos run k8s/experiments/pod-delete.yaml --namespace default
 
 [![CI](https://github.com/AsierCaballero/chaos-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/AsierCaballero/chaos-toolkit/actions/workflows/ci.yml)
 
+
+## Example usage
+
+```bash
+chaos templates
+chaos run k8s/experiments/pod-delete.yaml
+chaos status pod-delete-sample
+```
+
