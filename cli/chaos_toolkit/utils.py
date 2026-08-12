@@ -5,7 +5,6 @@ from __future__ import annotations
 import re
 import subprocess
 from pathlib import Path
-from typing import Any
 
 
 def validate_k8s_name(name: str) -> bool:
@@ -16,7 +15,7 @@ def validate_k8s_name(name: str) -> bool:
 def check_kubectl() -> bool:
     """Check if kubectl is available on the PATH."""
     try:
-        subprocess.run(["kubectl", "version", "--client"], capture_output=True)
+        subprocess.run(["kubectl", "version", "--client"], capture_output=True, check=False)
         return True
     except FileNotFoundError:
         return False

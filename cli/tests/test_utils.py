@@ -1,6 +1,6 @@
 """Tests for chaos_toolkit.utils module."""
 
-from chaos_toolkit.utils import validate_k8s_name, merge_dicts
+from chaos_toolkit.utils import merge_dicts, validate_k8s_name
 
 
 class TestValidateK8sName:

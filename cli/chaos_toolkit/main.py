@@ -7,11 +7,11 @@ import click
 
 from chaos_toolkit.config import load_config
 from chaos_toolkit.runner import (
-    run_experiment,
-    list_experiments,
-    get_experiment_status,
-    get_experiment_logs,
     describe_experiment,
+    get_experiment_logs,
+    get_experiment_status,
+    list_experiments,
+    run_experiment,
 )
 
 logger = logging.getLogger(__name__)
@@ -95,8 +95,9 @@ def describe_cmd(ctx, name):
 @cli.command("templates")
 def templates_cmd():
     """List available experiment templates."""
-    from chaos_toolkit.experiments import TEMPLATES
     from tabulate import tabulate
+
+    from chaos_toolkit.experiments import TEMPLATES
     rows = [{"name": k, "description": v["description"]} for k, v in TEMPLATES.items()]
     click.echo(tabulate(rows, headers="keys", tablefmt="simple"))
 
