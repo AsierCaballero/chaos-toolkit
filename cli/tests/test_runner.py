@@ -1,9 +1,10 @@
 """Tests for chaos_toolkit.runner module."""
 
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch
+
 import yaml
 
-from chaos_toolkit.runner import run_experiment, K8sClient
+from chaos_toolkit.runner import K8sClient, run_experiment
 
 
 class TestRunExperiment:
@@ -52,10 +53,12 @@ class TestRunExperiment:
             assert any(e["name"] == "TOTAL_CHAOS_DURATION" and e["value"] == "120" for e in env)
             return {"metadata": {"name": "test-exp"}}
 
-        with patch.object(K8sClient, "apply_manifest", side_effect=check_manifest):
-            with patch.object(K8sClient, "get_experiment") as mock_get:
-                mock_get.return_value = {"status": "Completed", "experiments": [{"verdict": "Pass"}]}
-                result = run_experiment(str(m), "default", 120)
+        with (
+            patch.object(K8sClient, "apply_manifest", side_effect=check_manifest),
+            patch.object(K8sClient, "get_experiment") as mock_get,
+        ):
+            mock_get.return_value = {"status": "Completed", "experiments": [{"verdict": "Pass"}]}
+            result = run_experiment(str(m), "default", 120)
 
         assert result["success"] is True
 

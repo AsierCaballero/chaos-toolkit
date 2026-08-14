@@ -1,7 +1,8 @@
 """Tests for chaos_toolkit.experiments module."""
 
 import yaml
-from chaos_toolkit.experiments import Experiment, TEMPLATES
+
+from chaos_toolkit.experiments import TEMPLATES, Experiment
 
 
 class TestExperiment:
@@ -48,7 +49,7 @@ class TestTemplates:
         assert "network-latency" in TEMPLATES
 
     def test_template_structure(self):
-        for name, tpl in TEMPLATES.items():
+        for tpl in TEMPLATES.values():
             assert "kind" in tpl
             assert "description" in tpl
             assert "default_params" in tpl

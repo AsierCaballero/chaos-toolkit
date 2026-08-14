@@ -6,7 +6,7 @@ from typing import Any
 
 import yaml
 from kubernetes import config
-from kubernetes.client import CustomObjectsApi, CoreV1Api
+from kubernetes.client import CoreV1Api, CustomObjectsApi
 from kubernetes.client.rest import ApiException
 
 logger = logging.getLogger(__name__)

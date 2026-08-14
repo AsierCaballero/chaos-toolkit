@@ -2,9 +2,7 @@
 
 import os
 import tempfile
-from pathlib import Path
 
-import pytest
 import yaml
 
 from chaos_toolkit.config import load_config

@@ -27,4 +27,3 @@ export async function deleteExperiment(name) {
   });
   return res.ok;
 }
-# Error handling added
